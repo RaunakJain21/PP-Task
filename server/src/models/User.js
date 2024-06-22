@@ -11,11 +11,15 @@ const userSchema = new mongoose.Schema({
     unique: true,
     match: [/^\S+@\S+\.\S+$/, 'Please use a valid email address'],
   },
+  phone:{
+    type:Number
+  },
   password: {
     type: String,
     required: [true, 'Password is required'],
     minlength: [6, 'Password must be at least 6 characters'],
   },
+
 });
 
 module.exports = mongoose.model('User', userSchema);

@@ -13,15 +13,23 @@ const findUserByEmail = async (email) => {
 
 const signup = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, confirmPassword,phone } = req.body;
+    if(password===confirmPassword)
+      {
 
     const existingUser = await findUserByEmail(email);
     if (existingUser) {
       return res.status(400).json({ message: 'Email already exists' });
     }
 
-    const user = await createUser({ name, email, password });
+    const user = await createUser({ name, email, password ,phone});
     res.status(201).json(user);
+  }
+  else {
+    res.status(200).json({
+      message:"Password doesn't match",
+    });
+  }
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

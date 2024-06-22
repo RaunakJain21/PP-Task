@@ -36,8 +36,8 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <form className="bg-white p-8 rounded shadow-md w-full max-w-md" onSubmit={handleSubmit(onSubmit)}>
+    <div className="flex items-center justify-center min-h-screen bg-black">
+      <form className=" bg-white p-8 rounded shadow-md w-full max-w-md" onSubmit={handleSubmit(onSubmit)}>
         <h2 className="text-2xl font-bold mb-6">Sign Up</h2>
         <div className="mb-4">
           <label className="block text-gray-700">Name</label>
@@ -70,7 +70,7 @@ const SignUpForm = () => {
           {errors.password && <p className="text-red-500">{errors.password.message}</p>}
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700">Confirm Password</label>
+          <label className="block text-gray-700" >Confirm Password</label>
           <input type="password" {...register('confirmPassword')} className="w-full p-2 border border-gray-300 rounded" />
           {errors.confirmPassword && <p className="text-red-500">{errors.confirmPassword.message}</p>}
         </div>
